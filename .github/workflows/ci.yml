@@ -1,18 +1,7 @@
 name: Continuous Integration
 
 on:
-  push:
-    branches:
-      - dev
-      - main
-      - 'release/**'
-    tags: ['**']
-  pull_request:
-    types: [opened, synchronize, reopened]
-
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+  workflow_dispatch: 
 
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
